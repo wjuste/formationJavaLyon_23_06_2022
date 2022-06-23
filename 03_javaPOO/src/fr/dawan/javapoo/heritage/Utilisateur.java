@@ -1,10 +1,10 @@
-package fr.dawan.javapoo.encapsultation;
+package fr.dawan.javapoo.heritage;
 
 public class Utilisateur {
 
 	//Visibilité : public
 	//Variable d'instance : Instance.Variable
-	private String nom; 
+	protected String nom; 
 	private String prenom;  
 	private int age;     
 	

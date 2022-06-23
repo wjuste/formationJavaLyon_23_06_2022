@@ -13,6 +13,8 @@ public class Application {
 		
 		System.out.println("Nombre d'utilisateur : " + Utilisateur.getNbreUtilisateur());
 		
+		System.out.println(user3.decrisToi());
+		
 	}
 
 }
