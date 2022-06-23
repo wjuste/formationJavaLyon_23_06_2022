@@ -14,7 +14,8 @@ public class Application {
 		System.out.println(client.getAge());
 		
 		System.out.println(client.decrisToi());
-
+		
+		
 		
 	}
 
