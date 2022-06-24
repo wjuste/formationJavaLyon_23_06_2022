@@ -1,8 +1,10 @@
 package fr.dawan.javaio;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class Application {
@@ -31,7 +33,6 @@ public class Application {
 			 */
 			 oos = new ObjectOutputStream(fos);
 			
-			
 			/*
 			 * 2-Ecriture de l'information , de l'objet adresse
 			 * 
@@ -48,6 +49,9 @@ public class Application {
 			e.printStackTrace();
 			System.out.println("Not OK");
 		} finally {
+			/*
+			 * 3-Fermeture du flux
+			 */
 			try {
 				oos.close();
 				fos.close();
@@ -56,7 +60,50 @@ public class Application {
 				e.printStackTrace();
 			}
 		}
-
+		 
+		 
+		/*
+		 * Etape de Lecture 
+		 * 
+		 */
+		 
+		 FileInputStream fis = null; 
+		 ObjectInputStream ois = null;
+		 
+		
+		 try {
+			 
+			//1- Création d'un flux d'entrée ayant pour source le chemin du fichier   
+			fis = new FileInputStream(path);
+			ois = new ObjectInputStream(fis);
+			
+			//2-Lecture 
+			Object o = ois.readObject();
+			
+			if(o instanceof Adresse) {
+				Adresse adr2 = (Adresse) o;
+				System.out.println(adr2); //System.out.println(adr2.toString());
+			}
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			//3-Fermeture du flux
+			try {
+				ois.close();
+				fis.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 }

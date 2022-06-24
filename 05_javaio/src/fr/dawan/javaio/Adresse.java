@@ -50,14 +50,12 @@ public class Adresse  implements Serializable{
 		this.codePostale = codePostale;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
+	
+	@Override
 	public String toString() {
 		return "Adresse [voie=" + voie + ", ville=" + ville + ", codePostale=" + codePostale + "]";
 	}
-	
-	
+
+
 
 }
